@@ -1,5 +1,6 @@
 package br.unipar.devbackend.microblog.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,6 +18,7 @@ public class Post {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "autor_id", nullable = false)
+    @JsonIgnoreProperties("posts")
     private Usuario autor;
 
     private LocalDateTime createdAt;
